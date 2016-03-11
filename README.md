@@ -10,6 +10,8 @@ WIP - Documentation and examples will be provided later.
 Contents
 --------
 - [Usage](#usage)
+  - [Imperative way - Listener](#imperative-way---listener)
+  - [Reactive way - RxJava](#reactive-way---rxjava)
 - [Examples](#examples)
 - [Download](#download)
 - [Tests](#tests)
@@ -20,6 +22,12 @@ Contents
 
 Usage
 -----
+
+### Imperative way - Listener
+
+TBD.
+
+### Reactive way - RxJava
 
 TBD.
 
