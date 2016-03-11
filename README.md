@@ -1,3 +1,4 @@
-Gesture detector for Android. It's better than the default one. It's configurable and reports more events.
+gesture
+=======
 
-WIP - gesture gonna be improved version of better gesture detector
+detects gestures on Android with listener and RxJava Observable. It's fork of [better-gesture-detector](https://github.com/Polidea/better-gesture-detector) by [Polidea](https://github.com/Polidea).
