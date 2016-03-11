@@ -8,9 +8,6 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 import com.github.pwittchen.gesture.library.Gesture;
 import com.github.pwittchen.gesture.library.GestureEvent;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -31,7 +28,7 @@ public class GestureRxActivity extends AppCompatActivity {
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(new Action1<GestureEvent>() {
           @Override public void call(GestureEvent event) {
-            final String msg = event.getName().concat(String.format(" [%d]", event.getClicks()));
+            final String msg = event.getName().concat(String.format(" [%d]", event.getTaps()));
             textView.setText(msg);
             textView.setBackgroundColor(0xff7f7f7f);
             textView.invalidate();

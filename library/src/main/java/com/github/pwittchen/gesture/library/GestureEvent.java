@@ -10,7 +10,7 @@ public enum GestureEvent {
   ON_MULTI_TAP("multi tap");
 
   private final String name;
-  private int clicks = 1;
+  private int taps = 1;
 
   GestureEvent(String name) {
     this.name = name;
@@ -20,12 +20,12 @@ public enum GestureEvent {
     return name;
   }
 
-  public int getClicks() {
-    return clicks;
+  public int getTaps() {
+    return taps;
   }
 
-  public GestureEvent withClicks(int clicks) {
-    this.clicks = clicks;
+  public GestureEvent withTaps(int taps) {
+    this.taps = taps;
     return this;
   }
 }
