@@ -78,7 +78,47 @@ gesture.addListener(new GestureListener() {
 
 ### Reactive way - RxJava
 
-TBD.
+**Step 1**: Create `Gesture` attribute and `Subscription` in the `Activity`:
+
+```java
+private Gesture gesture;
+private Subscription subscription;
+```
+
+**Step 2**: Initialize `Gesture` object and subscribe RxJava `Observable`:
+
+```java
+gesture = new Gesture();
+
+subscription = gesture.observe()
+  .subscribeOn(Schedulers.computation())
+  .observeOn(AndroidSchedulers.mainThread())
+  .subscribe(new Action1<GestureEvent>() {
+    @Override public void call(GestureEvent event) {
+      textView.setText(event.toString());
+    }
+  });
+```
+
+**Step 3**: Override `dispatchTouchEvent(MotionEvent)` method:
+
+```java
+@Override public boolean dispatchTouchEvent(MotionEvent event) {
+  gesture.dispatchTouchEvent(event);
+  return super.dispatchTouchEvent(event);
+}
+```
+
+**Step 4**: Don't forget to unsubscribe subscription when it's no longer needed:
+
+```java
+@Override protected void onPause() {
+  super.onPause();
+  if (subscription != null && !subscription.isUnsubscribed()) {
+    subscription.unsubscribe();
+  }
+}
+```
 
 Examples
 --------
