@@ -10,6 +10,8 @@ WIP - Documentation and examples will be provided later.
 Contents
 --------
 - [Usage](#usage)
+  - [Imperative way - Listener](#imperative-way---listener)
+  - [Reactive way - RxJava](#reactive-way---rxjava)
 - [Examples](#examples)
 - [Download](#download)
 - [Tests](#tests)
@@ -20,6 +22,12 @@ Contents
 
 Usage
 -----
+
+### Imperative way - Listener
+
+TBD.
+
+### Reactive way - RxJava
 
 TBD.
 
@@ -56,7 +64,8 @@ Initial code base for this project is provided by [Polidea](https://github.com/P
 License
 -------
 
-    Copyright 2015 Piotr Wittchen
+    Copyright 2012 Polidea
+    Copyright 2016 Piotr Wittchen
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
