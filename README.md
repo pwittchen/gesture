@@ -25,7 +25,56 @@ Usage
 
 ### Imperative way - Listener
 
-TBD.
+**Step 1**: Create `Gesture` attribute in the `Activity`:
+
+```java
+private Gesture gesture;
+```
+
+**Step 2**: Initialize `Gesture` object and add `GestureListner`:
+
+```java
+gesture = new Gesture();
+
+gesture.addListener(new GestureListener() {
+  @Override public void onPress(MotionEvent motionEvent) {
+    textView.setText("press");
+  }
+
+  @Override public void onTap(MotionEvent motionEvent) {
+    textView.setText("tap");
+  }
+
+  @Override public void onDrag(MotionEvent motionEvent) {
+    textView.setText("drag");
+  }
+
+  @Override public void onMove(MotionEvent motionEvent) {
+    textView.setText("move");
+  }
+
+  @Override public void onRelease(MotionEvent motionEvent) {
+    textView.setText("release");
+  }
+
+  @Override public void onLongPress(MotionEvent motionEvent) {
+    textView.setText("longpress");
+  }
+
+  @Override public void onMultiTap(MotionEvent motionEvent, int clicks) {
+    textView.setText("multitap [" + clicks + "]");
+  }
+});
+```
+
+**Step 3**: Override `dispatchTouchEvent(MotionEvent)` method:
+
+```java
+@Override public boolean dispatchTouchEvent(MotionEvent event) {
+  gesture.dispatchTouchEvent(event);
+  return super.dispatchTouchEvent(event);
+}
+```
 
 ### Reactive way - RxJava
 
