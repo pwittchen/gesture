@@ -221,7 +221,7 @@ public class Gesture {
       }
 
       @Override public void onMultiTap(MotionEvent motionEvent, int clicks) {
-        onNextSafely(GestureEvent.ON_MULTI_TAP.withTaps(clicks));
+        onNextSafely(GestureEvent.ON_MULTI_TAP.withClicks(clicks));
       }
     };
   }

@@ -28,10 +28,12 @@ public class GestureRxActivity extends AppCompatActivity {
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(new Action1<GestureEvent>() {
           @Override public void call(GestureEvent event) {
-            final String msg = event.getName().concat(String.format(" [%d]", event.getTaps()));
-            textView.setText(msg);
-            textView.setBackgroundColor(0xff7f7f7f);
-            textView.invalidate();
+            final String msg = event.toString();
+            if (event.equals(GestureEvent.ON_MULTI_TAP)) {
+              textView.setText(msg.concat(String.format(" [%d]", event.getClicks())));
+            } else {
+              textView.setText(msg);
+            }
           }
         });
   }

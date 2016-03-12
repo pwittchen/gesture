@@ -21,39 +21,33 @@ public class GestureActivity extends AppCompatActivity {
     gesture = new Gesture();
     gesture.addListener(new GestureListener() {
       @Override public void onPress(MotionEvent motionEvent) {
-        setEventText("press", 0xffff0000);
+        textView.setText("press");
       }
 
       @Override public void onTap(MotionEvent motionEvent) {
-        setEventText("tap", 0xff00ff00);
+        textView.setText("tap");
       }
 
       @Override public void onDrag(MotionEvent motionEvent) {
-        setEventText("drag", 0xff0000ff);
+        textView.setText("drag");
       }
 
       @Override public void onMove(MotionEvent motionEvent) {
-        setEventText("move", 0xffff00ff);
+        textView.setText("move");
       }
 
       @Override public void onRelease(MotionEvent motionEvent) {
-        setEventText("release", 0xffffff00);
+        textView.setText("release");
       }
 
       @Override public void onLongPress(MotionEvent motionEvent) {
-        setEventText("longpress", 0xff00ffff);
+        textView.setText("longpress");
       }
 
       @Override public void onMultiTap(MotionEvent motionEvent, int clicks) {
-        setEventText("multitap [" + clicks + "]", 0xff7f7f7f);
+        textView.setText("multitap [" + clicks + "]");
       }
     });
-  }
-
-  private void setEventText(String message, int color) {
-    textView.setText(message);
-    textView.setBackgroundColor(color);
-    textView.invalidate();
   }
 
   @Override public boolean dispatchTouchEvent(MotionEvent event) {
