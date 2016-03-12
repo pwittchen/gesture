@@ -72,6 +72,8 @@ public class Gesture {
       case MotionEvent.ACTION_CANCEL:
         onActionCancel(motionEvent);
         break;
+      default:
+        break;
     }
 
     prevTouchX = motionEvent.getX();
