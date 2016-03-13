@@ -7,8 +7,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-@RunWith(MockitoJUnitRunner.class)
-public class GestureTest {
+@RunWith(MockitoJUnitRunner.class) public class GestureTest {
 
   private Gesture gesture;
   private GestureEvent gestureEvent;
@@ -17,8 +16,21 @@ public class GestureTest {
   @Mock private MotionEvent motionEventUp;
 
   @Before public void setUp() {
-    this.gesture = new Gesture();
-    this.gesture.addListener(new GestureListener() {
+    gesture = new Gesture();
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void shouldThrowAnExceptionWhenListenerIsNull() {
+    gesture.addListener(null);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void shouldThrowAnExceptionWhenMotionEventIsNull() {
+    gesture.dispatchTouchEvent(null);
+  }
+
+  @Test public void shouldAddLListener() {
+    gesture.addListener(new GestureListener() {
       @Override public void onPress(MotionEvent motionEvent) {
         gestureEvent = GestureEvent.ON_PRESS;
       }
@@ -48,16 +60,4 @@ public class GestureTest {
       }
     });
   }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void shouldThrowAnExceptionWhenListenerIsNull() {
-    gesture.addListener(null);
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void shouldThrowAnExceptionWhenMotionEventIsNull() {
-    gesture.dispatchTouchEvent(null);
-  }
-
-  //TODO: implement tests for different methods of the listener
 }
