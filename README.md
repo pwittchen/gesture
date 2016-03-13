@@ -133,7 +133,11 @@ TBD.
 Tests
 -----
 
-TBD.
+To execute unit tests run:
+
+```
+./gradlew test
+```
 
 Code style
 ----------
