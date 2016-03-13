@@ -123,6 +123,8 @@ Examples
 
 Exemplary application is located in `app` directory of this repository.
 
+If you would like to see sample app in Kotlin, check `app-kotlin` directory.
+
 Download
 --------
 
