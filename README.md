@@ -5,6 +5,8 @@ detects gestures on Android with listener and RxJava Observable.
 
 This project is a fork of [better-gesture-detector](https://github.com/Polidea/better-gesture-detector) by [Polidea](https://github.com/Polidea).
 
+JavaDoc: http://pwittchen.github.io/gesture/
+
 Contents
 --------
 - [Usage](#usage)
