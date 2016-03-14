@@ -1,7 +1,7 @@
 gesture [![Build Status](https://travis-ci.org/pwittchen/gesture.svg?branch=master)](https://travis-ci.org/pwittchen/gesture)
 =======
 
-[WIP] detects gestures on Android with listener and RxJava Observable. 
+detects gestures on Android with listener and RxJava Observable. 
 
 This project is a fork of [better-gesture-detector](https://github.com/Polidea/better-gesture-detector) by [Polidea](https://github.com/Polidea).
 
