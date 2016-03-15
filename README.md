@@ -130,7 +130,21 @@ If you would like to see sample app in Kotlin, check `app-kotlin` directory.
 Download
 --------
 
-TBD.
+```xml
+<dependency>
+    <groupId>com.github.pwittchen</groupId>
+    <artifactId>gesture</artifactId>
+    <version>0.0.1</version>
+</dependency>
+```
+
+or through Gradle:
+
+```groovy
+dependencies {
+  compile 'com.github.pwittchen:gesture:0.0.1'
+}
+```
 
 Tests
 -----
