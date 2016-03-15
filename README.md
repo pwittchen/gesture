@@ -1,4 +1,4 @@
-gesture [![Build Status](https://travis-ci.org/pwittchen/gesture.svg?branch=master)](https://travis-ci.org/pwittchen/gesture)
+gesture [![Build Status](https://travis-ci.org/pwittchen/gesture.svg?branch=master)](https://travis-ci.org/pwittchen/gesture) ![Maven Central](https://img.shields.io/maven-central/v/com.github.pwittchen/gesture.svg?style=flat)
 =======
 
 detects gestures on Android with listener and RxJava Observable. 
