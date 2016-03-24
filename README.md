@@ -100,6 +100,23 @@ subscription = gesture.observe()
   });
 ```
 
+`GestureEvent` is an enum with the following API:
+
+```java
+public enum GestureEvent {
+  ON_PRESS,
+  ON_TAP,
+  ON_DRAG,
+  ON_MOVE,
+  ON_RELEASE,
+  ON_LONG_PRESS,
+  ON_MULTI_TAP;
+
+  int getClicks();
+  GestureEvent withClicks(int clicks);
+}
+```
+
 **Step 3**: Override `dispatchTouchEvent(MotionEvent)` method:
 
 ```java
