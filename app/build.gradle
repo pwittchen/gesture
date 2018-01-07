@@ -1,26 +1,31 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  buildToolsVersion rootProject.ext.buildToolsVersion
 
-    defaultConfig {
-        applicationId "com.github.pwittchen.gesture.app"
-        minSdkVersion 15
-        targetSdkVersion 23
-    }
+  defaultConfig {
+    applicationId "com.github.pwittchen.gesture.app"
+    minSdkVersion rootProject.ext.minSdkVersionApps
+    targetSdkVersion rootProject.ext.compileSdkVersion
+  }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-        }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
     }
+  }
 
-    dependencies {
-        compile project(':library')
-        compile 'io.reactivex:rxjava:1.1.1'
-        compile 'io.reactivex:rxandroid:1.1.0'
-        compile 'com.android.support:appcompat-v7:23.1.1'
-    }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
+
+dependencies {
+  compile project(':library')
+  compile deps.rxandroid
+  compile deps.appcompatv7
 }
