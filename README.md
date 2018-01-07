@@ -1,4 +1,4 @@
-gesture [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Gesture-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3326) [![Build Status](https://travis-ci.org/pwittchen/gesture.svg?branch=master)](https://travis-ci.org/pwittchen/gesture) ![Maven Central](https://img.shields.io/maven-central/v/com.github.pwittchen/gesture.svg?style=flat)
+gesture [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Gesture-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3326)
 =======
 
 detects gestures on Android with listener and RxJava Observable. 
