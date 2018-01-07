@@ -7,14 +7,14 @@ import android.view.MenuItem
 import android.view.MotionEvent
 import com.github.pwittchen.gesture.library.Gesture
 import com.github.pwittchen.gesture.library.GestureEvent
-import kotlinx.android.synthetic.main.main.textView
-import rx.Subscription
-import rx.android.schedulers.AndroidSchedulers
-import rx.schedulers.Schedulers
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.main.*
 
 class GestureRxActivity : AppCompatActivity() {
   private var gesture: Gesture? = null
-  private var subscription: Subscription? = null
+  private var subscription: Disposable? = null
 
   public override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -41,12 +41,12 @@ class GestureRxActivity : AppCompatActivity() {
 
   override fun onPause() {
     super.onPause()
-    safelyUnsubscribe(subscription)
+    safelyDispose(subscription)
   }
 
-  private fun safelyUnsubscribe(subscription: Subscription?) {
-    if (subscription != null && !subscription.isUnsubscribed) {
-      subscription.unsubscribe()
+  private fun safelyDispose(disposable: Disposable?) {
+    if (disposable != null && !disposable.isDisposed) {
+      disposable.dispose()
     }
   }
 
