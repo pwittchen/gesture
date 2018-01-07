@@ -27,10 +27,10 @@ android {
 }
 
 dependencies {
-  compile project(':library')
-  compile deps.rxandroid
-  compile deps.appcompatv7
-  compile deps.kotlinstdlib
+  implementation project(':library')
+  implementation deps.rxandroid
+  implementation deps.appcompatv7
+  implementation deps.kotlinstdlib
 }
 
 buildscript {

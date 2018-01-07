@@ -5,7 +5,12 @@ detects gestures on Android with listener and RxJava Observable.
 
 This project is a fork of [better-gesture-detector](https://github.com/Polidea/better-gesture-detector) by [Polidea](https://github.com/Polidea).
 
-JavaDoc: http://pwittchen.github.io/gesture/
+JavaDoc: http://pwittchen.github.io/gesture/RxJava1.x
+
+| Current Branch | Branch  | Artifact Id | Build Status  | Maven Central |
+|:--------------:|:-------:|:-----------:|:-------------:|:-------------:|
+| :ballot_box_with_check: | [`RxJava1.x`](https://github.com/pwittchen/gesture/tree/RxJava1.x) | `gesture` | [![Build Status for RxJava1.x](https://travis-ci.org/pwittchen/gesture.svg?branch=RxJava1.x)](https://travis-ci.org/pwittchen/gesture) | ![Maven Central](https://img.shields.io/maven-central/v/com.github.pwittchen/gesture.svg?style=flat) |
+| | [`RxJava2.x`](https://github.com/pwittchen/gesture/tree/RxJava2.x) | `gesture-rx2` | [![Build Status for RxJava2.x](https://travis-ci.org/pwittchen/gesture.svg?branch=RxJava2.x)](https://travis-ci.org/pwittchen/gesture) | ![Maven Central](https://img.shields.io/maven-central/v/com.github.pwittchen/gesture-rx2.svg?style=flat) |
 
 Contents
 --------
@@ -93,10 +98,8 @@ gesture = new Gesture();
 subscription = gesture.observe()
   .subscribeOn(Schedulers.computation())
   .observeOn(AndroidSchedulers.mainThread())
-  .subscribe(new Action1<GestureEvent>() {
-    @Override public void call(GestureEvent event) {
-      textView.setText(event.toString());
-    }
+  .subscribe(event -> {
+    textView.setText(event.toString());
   });
 ```
 
