@@ -22,8 +22,8 @@ android {
 }
 
 dependencies {
-  compile deps.rxjava2
-  testCompile deps.junit
-  testCompile deps.truth
-  testCompile deps.mockitocore
+  api deps.rxjava2
+  testImplementation deps.junit
+  testImplementation deps.truth
+  testImplementation deps.mockitocore
 }

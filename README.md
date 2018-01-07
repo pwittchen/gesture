@@ -7,6 +7,11 @@ This project is a fork of [better-gesture-detector](https://github.com/Polidea/b
 
 JavaDoc: http://pwittchen.github.io/gesture/
 
+| Current Branch | Branch  | Artifact Id | Build Status  | Maven Central |
+|:--------------:|:-------:|:-----------:|:-------------:|:-------------:|
+| | [`RxJava1.x`](https://github.com/pwittchen/gesture/tree/RxJava1.x) | `gesture` | [![Build Status for RxJava1.x](https://travis-ci.org/pwittchen/gesture.svg?branch=RxJava1.x)](https://travis-ci.org/pwittchen/gesture) | ![Maven Central](https://img.shields.io/maven-central/v/com.github.pwittchen/gesture.svg?style=flat) |
+| :ballot_box_with_check: | [`RxJava2.x`](https://github.com/pwittchen/gesture/tree/RxJava2.x) | `gesture-rx2` | [![Build Status for RxJava2.x](https://travis-ci.org/pwittchen/gesture.svg?branch=RxJava2.x)](https://travis-ci.org/pwittchen/gesture) | ![Maven Central](https://img.shields.io/maven-central/v/com.github.pwittchen/gesture-rx2.svg?style=flat) |
+
 Contents
 --------
 - [Usage](#usage)
@@ -93,10 +98,8 @@ gesture = new Gesture();
 subscription = gesture.observe()
   .subscribeOn(Schedulers.computation())
   .observeOn(AndroidSchedulers.mainThread())
-  .subscribe(new Action1<GestureEvent>() {
-    @Override public void call(GestureEvent event) {
-      textView.setText(event.toString());
-    }
+  .subscribe(event -> {
+    textView.setText(event.toString());
   });
 ```
 
@@ -126,13 +129,13 @@ public enum GestureEvent {
 }
 ```
 
-**Step 4**: Don't forget to unsubscribe subscription when it's no longer needed:
+**Step 4**: Don't forget to dispose subscription when it's no longer needed:
 
 ```java
 @Override protected void onPause() {
   super.onPause();
-  if (subscription != null && !subscription.isUnsubscribed()) {
-    subscription.unsubscribe();
+  if (subscription != null && !subscription.isDisposed()) {
+    subscription.dispose();
   }
 }
 ```
@@ -147,23 +150,7 @@ If you would like to see sample app in Kotlin, check `app-kotlin` directory.
 Download
 --------
 
-You can depend on library through Maven:
-
-```xml
-<dependency>
-    <groupId>com.github.pwittchen</groupId>
-    <artifactId>gesture</artifactId>
-    <version>0.0.1</version>
-</dependency>
-```
-
-or through Gradle:
-
-```groovy
-dependencies {
-  compile 'com.github.pwittchen:gesture:0.0.1'
-}
-```
+TBD.
 
 Tests
 -----

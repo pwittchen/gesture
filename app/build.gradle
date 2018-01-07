@@ -25,7 +25,7 @@ android {
 }
 
 dependencies {
-  compile project(':library')
-  compile deps.rxandroid2
-  compile deps.appcompatv7
+  implementation project(':library')
+  implementation deps.rxandroid2
+  implementation deps.appcompatv7
 }
