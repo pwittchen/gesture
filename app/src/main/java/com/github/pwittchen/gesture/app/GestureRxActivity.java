@@ -8,9 +8,9 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 import com.github.pwittchen.gesture.library.Gesture;
 import com.github.pwittchen.gesture.library.GestureEvent;
+import java.util.Locale;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 public class GestureRxActivity extends AppCompatActivity {
@@ -26,14 +26,13 @@ public class GestureRxActivity extends AppCompatActivity {
     subscription = gesture.observe()
         .subscribeOn(Schedulers.computation())
         .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(new Action1<GestureEvent>() {
-          @Override public void call(GestureEvent event) {
-            final String msg = event.toString();
-            if (event.equals(GestureEvent.ON_MULTI_TAP)) {
-              textView.setText(msg.concat(String.format(" [%d]", event.getClicks())));
-            } else {
-              textView.setText(msg);
-            }
+        .subscribe(event -> {
+          final String msg = event.toString();
+          if (event.equals(GestureEvent.ON_MULTI_TAP)) {
+            textView.setText(
+                msg.concat(String.format(Locale.getDefault(), " [%d]", event.getClicks())));
+          } else {
+            textView.setText(msg);
           }
         });
   }
