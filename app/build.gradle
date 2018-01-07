@@ -26,6 +26,6 @@ android {
 
 dependencies {
   compile project(':library')
-  compile deps.rxandroid
+  compile deps.rxandroid2
   compile deps.appcompatv7
 }

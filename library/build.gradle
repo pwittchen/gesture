@@ -22,7 +22,7 @@ android {
 }
 
 dependencies {
-  compile deps.rxjava
+  compile deps.rxjava2
   testCompile deps.junit
   testCompile deps.truth
   testCompile deps.mockitocore

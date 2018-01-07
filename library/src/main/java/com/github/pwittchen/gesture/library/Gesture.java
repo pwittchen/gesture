@@ -1,9 +1,27 @@
+/*
+ * Copyright 2012 Polidea
+ * Copyright 2016 Piotr Wittchen
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.github.pwittchen.gesture.library;
 
 import android.os.Handler;
 import android.view.MotionEvent;
-import rx.Observable;
-import rx.Subscriber;
+import io.reactivex.Emitter;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
 
 public class Gesture {
   private static final int DEFAULT_PRESS_TIMEOUT = 100;
@@ -30,7 +48,7 @@ public class Gesture {
 
   private Handler handler;
   private GestureListener listener;
-  private Subscriber<? super GestureEvent> subscriber;
+  private Emitter<GestureEvent> emitter;
 
   public Gesture() {
     this.handler = new Handler();
@@ -43,9 +61,9 @@ public class Gesture {
 
   public Observable<GestureEvent> observe() {
     this.listener = createReactiveListener();
-    return Observable.create(new Observable.OnSubscribe<GestureEvent>() {
-      @Override public void call(final Subscriber<? super GestureEvent> subscriber) {
-        Gesture.this.subscriber = subscriber;
+    return Observable.create(new ObservableOnSubscribe<GestureEvent>() {
+      @Override public void subscribe(ObservableEmitter<GestureEvent> emitter) throws Exception {
+        Gesture.this.emitter = emitter;
       }
     });
   }
@@ -229,8 +247,8 @@ public class Gesture {
   }
 
   private void onNextSafely(final GestureEvent gestureEvent) {
-    if (subscriber != null) {
-      subscriber.onNext(gestureEvent);
+    if (emitter != null) {
+      emitter.onNext(gestureEvent);
     }
   }
 

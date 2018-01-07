@@ -8,15 +8,15 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 import com.github.pwittchen.gesture.library.Gesture;
 import com.github.pwittchen.gesture.library.GestureEvent;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import java.util.Locale;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class GestureRxActivity extends AppCompatActivity {
   private Gesture gesture;
   private TextView textView;
-  private Subscription subscription;
+  private Disposable subscription;
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -44,12 +44,12 @@ public class GestureRxActivity extends AppCompatActivity {
 
   @Override protected void onPause() {
     super.onPause();
-    safelyUnsubscribe(subscription);
+    safelyDispose(subscription);
   }
 
-  private void safelyUnsubscribe(Subscription subscription) {
-    if (subscription != null && !subscription.isUnsubscribed()) {
-      subscription.unsubscribe();
+  private void safelyDispose(Disposable disposable) {
+    if (disposable != null && !disposable.isDisposed()) {
+      disposable.dispose();
     }
   }
 
