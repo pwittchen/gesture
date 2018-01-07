@@ -149,8 +149,23 @@ If you would like to see sample app in Kotlin, check `app-kotlin` directory.
 
 Download
 --------
+You can depend on library through Maven:
 
-TBD.
+```xml
+<dependency>
+    <groupId>com.github.pwittchen</groupId>
+    <artifactId>gesture-rx2</artifactId>
+    <version>0.1.0</version>
+</dependency>
+```
+
+or through Gradle:
+
+```groovy
+dependencies {
+  compile 'com.github.pwittchen:gesture-rx2:0.1.0'
+}
+```
 
 Tests
 -----
