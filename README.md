@@ -87,7 +87,7 @@ gesture.addListener(new GestureListener() {
 
 ```java
 private Gesture gesture;
-private Subscription subscription;
+private Disposable subscription;
 ```
 
 **Step 2**: Initialize `Gesture` object and subscribe RxJava `Observable`:
