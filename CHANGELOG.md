@@ -3,7 +3,7 @@ CHANGELOG
 
 v. 0.1.1
 --------
-*? Mar 2020*
+*12 Mar 2020*
 - updated project dependencies
 - updated build configuration
 
