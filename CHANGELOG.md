@@ -1,6 +1,13 @@
 CHANGELOG
 =========
 
+v. 0.1.1
+--------
+*? Mar 2020*
+- updated project dependencies
+- updated build configuration
+
+
 v. 0.1.0
 --------
 *07 Jan 2018*
