@@ -149,13 +149,18 @@ If you would like to see sample app in Kotlin, check `app-kotlin` directory.
 
 Download
 --------
+
+latest version:  ![Maven Central](https://img.shields.io/maven-central/v/com.github.pwittchen/gesture-rx2.svg?style=flat)
+
+replace `x.y.z` with the latest version
+
 You can depend on library through Maven:
 
 ```xml
 <dependency>
     <groupId>com.github.pwittchen</groupId>
     <artifactId>gesture-rx2</artifactId>
-    <version>0.1.0</version>
+    <version>x.y.z</version>
 </dependency>
 ```
 
@@ -163,7 +168,7 @@ or through Gradle:
 
 ```groovy
 dependencies {
-  compile 'com.github.pwittchen:gesture-rx2:0.1.0'
+  compile 'com.github.pwittchen:gesture-rx2:x.y.z'
 }
 ```
 
